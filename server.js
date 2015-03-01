@@ -1,10 +1,11 @@
 var http = require('http');
+var express = require('express');
+var app = express();
 
-var server = http.createServer(function(request, response) {
-console.log("I got a request!");
-response.write("Hello");
-response.end();
+app.set('port', process.env.PORT || 3000);
 
-});
+var server = app.listen(app.get('port'), function() {
+	debug('Express server listening on port ' + server.address().port);
+})
 
-server.listen(3000);
+
