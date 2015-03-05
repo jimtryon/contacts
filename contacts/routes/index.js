@@ -21,8 +21,8 @@ router.get('/contactlist', function(req, res) {
     var db = req.db;
     var collection = db.get('contacts');
     collection.find({}, {}, function(e, docs) {
-        res.render('contactlist', {
-            "contactlist":docs
+        res.render('contactlist', { title: 'Contact List',
+           "contactlist":docs 
         });
     });
 });
