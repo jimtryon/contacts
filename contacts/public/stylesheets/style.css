@@ -3,8 +3,26 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-table, td, tr, th {
-    padding-right: 30px;
+table {
+    border-collapse: collapse;
+    border: 1px solid;
+}
+
+td {
+    border: 1px solid;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+tr {
+    border: 1px solid;
+    padding: 15px;
+}
+
+th {
+    border: 1px solid;
+    text-align: left;
+    padding: 15px;
 }
 
 a {
