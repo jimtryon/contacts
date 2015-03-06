@@ -2,4 +2,24 @@ extends layout
 
 block content
     h1 #{title}
+    table
+        thead
+            tr.head
+                th Name
+                th Title
+                th Company
+                th Email
+                th Location
+                th Date
+                th Comments
+        tbody
+        each contact in contactlist
+            td #{contact.name.last}, #{contact.name.first}
+            td #{contact.title}
+            td #{contact.company}
+            td #{contact.email}
+            td #{contact.wheremet}
+            td #{contact.datemet}
+            td #{contact.comments}
+
 
