@@ -27,4 +27,9 @@ router.get('/contactlist', function(req, res) {
     });
 });
 
+/* GET new contact page. */
+router.get('/newcontact', function(req, res, next) {
+  res.render('newcontact', { title: 'Add New Contact' });
+});
+
 module.exports = router;
