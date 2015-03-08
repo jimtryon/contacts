@@ -24,7 +24,12 @@ router.get('/aboutme', function(req, res, next) {
 router.get('/contactlist', function(req, res) {
     var db = req.db;
     var collection = db.get('contacts');
-    collection.find({}, {}, function(e, docs) {
+    var options = {
+      "limit" : 20,
+      "sort" : "name.last" 
+    }
+    // params: query object, fields, options, callback 
+    collection.find({}, options, function(e, docs) {
         res.render('contactlist', { title: 'Contact List',
            "contactlist":docs 
         });
