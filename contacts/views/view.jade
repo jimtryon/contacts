@@ -5,6 +5,7 @@ block content
     table
         thead
             tr.head
+                th
                 th Name
                 th Title
                 th Company
@@ -13,9 +14,11 @@ block content
                 th Date
                 th Comments
         tbody
-        each contact in contactlist
+        each contact in view
             tr
-                td #{contact.name.last}, #{contact.name.first}
+                td
+                    a(href="/contactupdate/#{contact._id}") Edit
+                td #{contact.name.last}, #{contact.name.first} 
                 td #{contact.title}
                 td #{contact.company}
                 td #{contact.email}
@@ -23,6 +26,6 @@ block content
                 td #{contact.datemet}
                 td #{contact.comments}
     br            
-    a(href="/newcontact")!= "Add New Contact"
+    a(href="/new-contact")= "Add New Contact"
 
 

@@ -4,7 +4,7 @@ block content
   
   form#formAddContact(name="addcontact", method="post", action="/addcontact")
 
-      input#first-name(type="text", placeholder="First Name", name="first")
+      input#first-name(type="text", placeholder="First Name", name="first" value="#{contactupdate.name.first}")
       br
       input#last-name(type="text", placeholder="Last Name", name="last")
       br
@@ -25,4 +25,4 @@ block content
       button#btnSubmit(type="submit") submit
       br
       br
-   a(href="/contactlist")!= "Back to Contact List"
+   a(href="/contactlist")= "Back to Contact List"
