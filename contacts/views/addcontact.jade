@@ -1,0 +1,40 @@
+extends layout
+block content
+	h4= title
+				
+		form#formAddContact(role="form", name="addcontact", method="post", action="/addcontact")
+			label.control-label(for="first-name") First Name:
+				input#first-name.form-control(type="text", name="first" placeholder="First Name")
+				
+			br
+			label.control-label(for="last-name") Last Name:
+				input#last-name.form-control(type="text", name="last" placeholder="Last Name")
+							
+			br
+			label.control-label(for="title") Title:
+				input#title.form-control(type="text", name="title" placeholder="Title")
+				
+			br
+			label.control-label(for="company") Company:
+				input#company.form-control(type="text", name="company" placeholder="Company")
+				
+			br
+			label.control-label(for="email") Email:
+				input#email.form-control(type="text", name="email" placeholder="Email")
+				
+			br
+			label.control-label(for="location") Where Met:
+				input#where-met.form-control(type="text", name="where-met" placeholder="Where Met")
+				
+			br
+			label.control-label(for="date-met") Date Met:
+				input#company.form-control(type="text", name="date-met" placeholder="Date Met")
+
+			
+			br
+			label.control-label(for="comments") Comments:
+				textarea#comments.form-control(rows="3", name="comments", placeholder="Comments")
+
+		button.btn.btn-primary#btnSubmit(type="submit") submit
+
+	a(href="/contacts")= "Back to Contact List"

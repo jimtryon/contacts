@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    h1 #{title}
+    table.table.table-bordered
+        thead
+            tr.head
+                th
+                th Name
+                th Title
+                th Company
+                th Email
+                th Location
+                th Date
+                th Comments
+        tbody
+        // Pull in the set of documents called contacts in the route file
+        each contact in contacts
+            tr
+                td
+                    a(href="/editcontact/#{contact._id}") Edit
+                td #{contact.name.last}, #{contact.name.first} 
+                td #{contact.title}
+                td #{contact.company}
+                td #{contact.email}
+                td #{contact.wheremet}
+                td #{contact.datemet}
+                td #{contact.comments}
+    br            
+    a(href="/addcontact")= "Add New Contact"
+
+

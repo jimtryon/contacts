@@ -1,14 +1,19 @@
-// Load Express
 var express = require('express');
 
-// Load the Date module 
+// Date library
 var moment = require('moment');
 
-// Create a new router
 var router = express.Router();
 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+    res.render('index', {
+        title: 'Express'
+    });
+});
+
 /* GET contact list page. */
-router.get('/', function(req, res) {
+router.get('/contacts', function(req, res) {
     var db = req.db;
     var collection = db.get('contacts');
     var options = {
@@ -17,25 +22,25 @@ router.get('/', function(req, res) {
         }
         // params: query object, fields, options, callback 
     collection.find({}, options, function(e, docs) {
-      /* Contact list view */
-        res.render('view', {
+        res.render('contacts', {
             title: 'Contact List',
-            "view": docs
+            "contacts": docs
         });
     });
 });
 
 /* GET new contact page */
-router.get('/new-contact', function(req, res, next) {
-    res.render('add', {
+router.get('/addcontact', function(req, res, next) {
+    res.render('addcontact', {
         title: 'Add New Contact'
     });
 });
 
 /* POST to Add Contact Service */
-router.post('/add', function(req, res) {
+router.post('/addcontact', function(req, res) {
+
     var db = req.db;
-    // Set our internal DB variable  var db = req.db;
+
     // Get our form values. These rely on the "name" attributes
     var first = req.body.first;
     var last = req.body.last;
@@ -66,11 +71,29 @@ router.post('/add', function(req, res) {
             res.send("There was a problem adding the information to the database.");
         } else {
             // If it worked, set the header so the address bar doesn't say /adduser
-            res.location("/");
+            res.location("contacts");
             // And forward to success page
-            res.redirect("/");
+            res.redirect("contacts");
         }
     });
 });
+
+
+router.get('/editcontact/:id', function(req, res) {
+
+var db = req.db;
+
+var id = req.params.id;
+
+var collection = db.get('contacts');
+
+collection.findOne( {"_id": id} , function(e, docs) {
+  res.render('editcontact', { title: 'Update Contact',
+    "editcontact":docs
+    });
+  });
+});
+
+
 
 module.exports = router;

@@ -1,28 +1,49 @@
 extends layout
 block content
-  h1= title
-  
-  form#formAddContact(name="addcontact", method="post", action="/addcontact")
+	h4= title
 
-      input#first-name(type="text", placeholder="First Name", name="first" value="#{contactupdate.name.first}")
-      br
-      input#last-name(type="text", placeholder="Last Name", name="last")
-      br
-      input#title(type="text", placeholder="Title", name="title")
-      br
-      input#company(type="text", placeholder="Company", name="company")
-      br
-      input#email(type="text", placeholder="E-mail", name="email")
-      br
-      input#where-met(type="text", placeholder="Location", name="location")
-      br
-      input#date-met(type="text", placeholder="Date", name="date")
-      br
-      br
-      textarea#comments(rows="5", cols="20" name="comments", placeholder="Comments")
-      br
+		form#formEditContact(name="editcontact", method="post", action="/editcontact")
+			label.control-label(for="first-name") First Name:
+				input#first-name.form-control(type="text", name="first", value="#{editcontact.name.first}")
+			br
+			label.control-label(for="last-name") Last Name:
+				input#last-name.form-control(type="text", name="last", value="#{editcontact.name.last}")
 
-      button#btnSubmit(type="submit") submit
-      br
-      br
-   a(href="/contactlist")= "Back to Contact List"
+			br
+			label.control-label(for="title") Title:
+				input#title.form-control(type="text", name="title", value="#{editcontact.title}")
+
+			br
+			label.control-label(for="company") Company:
+				input#company.form-control(type="text", name="company", value="#{editcontact.company}")
+
+			br
+			label.control-label(for="email") Email:
+				input#email.form-control(type="email", name="email", value="#{editcontact.email}")
+
+			br
+			label.control-label(for="where-met") Where Met:
+				input#where-met.form-control(type="text", name="where-met", value="#{editcontact.wheremet}")
+
+			br
+			label.control-label(for="date-met") Date Met:
+				input#first-name.form-control(type="text", name="datemet", value="#{editcontact.datemet}")
+
+			br
+			label.control-label(for="comments") Comments:
+				textarea#comments.form-control(rows="3", name="comments", placeholder="Comments")
+
+		button.btn.btn-primary#btnSubmit(type="submit") Update
+
+	a(href="/contacts")= "Back to Contact List"
+
+
+
+
+
+
+
+
+
+
+

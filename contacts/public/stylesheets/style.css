@@ -1,28 +1,17 @@
+h4 {
+	margin: 0
+	font-size: 20%
+}
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding-left: 2%
 }
 
-table {
-  width: 100%;
-  border: 1px solid;
+label {
+	font-size: 60%
 }
 
-td {
-  border: 1px solid;
+.form-control {
+	width: 130%
 }
 
-tr {
-  border: 1px solid;
-}
-
-th {
-  border: 1px solid;
-}
-
-a {
-  color: #00B7FF;
-}
-
-input {
-  margin-top: 10px 
-}
